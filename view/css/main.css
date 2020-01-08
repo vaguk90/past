@@ -1,0 +1,226 @@
+body {
+    background: rgba(176, 175, 159, 0.1);
+}
+
+/*
+ОСНОВНАЯ СТРАНИЦА_______
+форма, тени страницы
+*/
+.stick {
+    width: 90%;
+    padding: 20px 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    left: 0;
+    top: 15px;
+    right: 0;
+    margin: 20px auto;
+}
+
+/*
+цветовые темы страницы
+ */
+.color_style {
+    background: -webkit-linear-gradient(top left, #FB3DF2, #3B8E8E);
+    background: -moz-linear-gradient(top left, #FB3DF2, #3B8E8E);
+    background: linear-gradient(to bottom right, #FB3DF2, #3B8E8E);
+}
+
+/*
+НАСТРОЙКА ГЛАВНОГО СТИКА
+*/
+.general {
+    margin-bottom: 20px;
+}
+
+/*
+ВЫСОТА ОКНА ВАЛИДАЦИИ
+ */
+#error, #new_user p {
+    height: 20px;
+    color: #F8D353;
+}
+
+
+/*
+стиль input
+ */
+input, select {
+    text-align: center;
+    border-radius: 10px;
+    background: #F8D353;
+    background: #FB3DF2;
+    background: -webkit-linear-gradient(top left, #FB3DF2, #3B8E8E);
+    background: -moz-linear-gradient(top left, #FB3DF2, #3B8E8E);
+    background: linear-gradient(to bottom right, #FB3DF2, #3B8E8E);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    outline: 0 !important;
+}
+
+/*
+РАЗМЕР СЕЛЕКТА
+ */
+select {
+    min-width: 200px;
+    text-align-last: center;
+}
+
+option {
+    color: black;
+
+}
+
+/*
+белый цвет и выравнивание по центру
+ */
+input, input::placeholder, p, H1, select {
+    text-align: center;
+    color: white;
+}
+
+/*
+движение placeholder в сторону
+ */
+input::focus::-webkit-input-placeholder {
+    color: transparent
+}
+
+input::-webkit-input-placeholder {
+    text-indent: 0px;
+    transition: text-indent 0.3s ease;
+}
+
+input::-moz-placeholder {
+    text-indent: 0px;
+    transition: text-indent 0.3s ease;
+}
+
+input:-moz-placeholder {
+    text-indent: 0px;
+    transition: text-indent 0.3s ease;
+}
+
+input:-ms-input-placeholder {
+    text-indent: 0px;
+    transition: text-indent 0.3s ease;
+}
+
+input:focus::-webkit-input-placeholder {
+    text-indent: 500px;
+    transition: text-indent 0.3s ease;
+}
+
+input:focus::-moz-placeholder {
+    text-indent: 500px;
+    transition: text-indent 0.3s ease;
+}
+
+input:focus:-moz-placeholder {
+    text-indent: 500px;
+    transition: text-indent 0.3s ease;
+}
+
+input:focus:-ms-input-placeholder {
+    text-indent: 500px;
+    transition: text-indent 0.3s ease;
+}
+
+/*
+аква цвет
+ */
+input[type = "submit"], input[type = "button"], .info span {
+    color: aqua;
+    margin-bottom: 10px;
+}
+.registration input {
+    margin-right: 20px;
+}
+
+/*
+размер полей ввода, а так же отступы
+ */
+.window input, .dann input{
+    margin-top: 15px;
+    font-size: 22px;
+    min-width: 300px;
+    max-width: 400px;
+}
+/*
+НВСТРОЙКА ОКОН
+ */
+.window, .guest_menu {
+    padding: 20px;
+    width: 90%;
+    display: none;
+    z-index: 5;
+    position: absolute;
+}
+
+
+
+
+
+
+/*
+убираем правый скрол input
+ */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+/*
+форма меню и close
+ */
+.menu, .closer {
+    cursor: pointer !important;
+    position: absolute;
+    right: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    width: 50px;
+    border-radius: 10px;
+    line-height: 10px;
+    font-size: 27px;
+    font-weight: bold;
+}
+
+.closer p {
+    font-size: 15px;
+    margin: 0 auto;
+}
+
+
+
+.login {
+    margin-top: 50px;
+}
+
+.login input, .registration p {
+    margin-left: auto;
+    margin-right: 20px;
+    margin-bottom: 15px;
+}
+
+.registration a {
+    font-weight: bold;
+    color: aqua;
+    text-decoration: none;
+}
+
+.register {
+    z-index: 6;
+}
+
+.result {
+    position: absolute;
+    display: none;
+    -animation-delay: 2s;
+    -webkit-animation-delay: .5s;
+    -moz-animation-delay: 2s;
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
