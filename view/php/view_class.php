@@ -181,7 +181,7 @@ _HEADER_;
   <div class = "col-sm">
       <form method = "POST">
       <ul>
-  <li><input type = "text" name = "create_auto"  id = "create_auto" placeholder = "Введите марку автомобиля" required></li>
+  <li><input type = "text" name = "create_name_auto"  id = "create_name_auto" placeholder = "Введите марку автомобиля" required></li>
   <li><input type = "text" name = "create_numer"  id = "create_numer" placeholder = "Введите номер автомобиля" required></li>
   <li><input type = "submit" name = "save_auto" id = "save_auto" value = "Сохранить"></li>
       </ul>
