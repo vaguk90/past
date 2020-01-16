@@ -16,7 +16,8 @@ session_start();
     <script src="view/js/menu.js"></script>
     <script src="controller/registration_controller.js"></script>
     <script src="controller/autorization_controller.js"></script>
-    <script src="controller/auto_controller.js"></script>
     <script src="controller/user_controller.js"></script>
+    <script src="controller/create_auto_controller.js"></script>
+    <script src="controller/create_user_controller.js"></script>
 
 </head>

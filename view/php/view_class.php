@@ -119,9 +119,6 @@ class General_stick
             echo '<div class="row text-center stick mt-4">' . $info . '</div>';
         } else if ($data === 'user') { //ЕСЛИ ПОЛЬЗОВАТЕЛЬ АВТОРИЗОВАН ВЫВЕСТИ ОКНО ИНФОРМАЦИИ АВТОМОБИЛЯ
             echo '<div class ="user_guest  d-flex justify-content-between mt-5">
-
-
-
          <ul class = "p-0">
              <li>
                  <p><select type = "text" id = "i_auto" name = "i_auto">
@@ -132,7 +129,7 @@ class General_stick
                     $name->execute(array($us_name));
                     $name_auto = $name->fetchAll(PDO::FETCH_ASSOC);
                         foreach ($name_auto as $auto) {
-                echo "/n<option value = {$auto['id_auto']}>{$auto['name_auto']} {$auto['number']} {$auto['region']}</option>";
+                echo "/n<option value = {$auto['id_auto']}>{$auto['name_auto']} {$auto['number']} </option>";
             }
                    echo '</select></p>
              </li>
@@ -181,7 +178,7 @@ _HEADER_;
   <div class = "col-sm">
       <form method = "POST">
       <ul>
-  <li><input type = "text" name = "create_auto"  id = "create_auto" placeholder = "Введите марку автомобиля" required></li>
+  <li><input type = "text" name = "create_name_auto"  id = "create_name_auto" placeholder = "Введите марку автомобиля" required></li>
   <li><input type = "text" name = "create_numer"  id = "create_numer" placeholder = "Введите номер автомобиля" required></li>
   <li><input type = "submit" name = "save_auto" id = "save_auto" value = "Сохранить"></li>
       </ul>
@@ -211,6 +208,7 @@ _HEADER_;
       <ul>
   <li><input type = "text" name = "add_firstname"  id = "add_firstname" placeholder = "Введите имя водителя" required></li>
   <li><input type = "text" name = "add_lastname"  id = "add_lastname" placeholder = "Введите email водителя" required></li>
+  <li><input type = "text" name = "user_company"  id = "user_company" placeholder = "Введите фирму водителя" required></li>
   <li><input type = "submit" name = "add_user" id = "add_user" value = "Сохранить"></li>
       </ul>
       </form>

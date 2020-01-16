@@ -30,8 +30,12 @@ if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
         $errors[] = 'Пороли не совпадают';
     } else if ($firstname == '') {
         $errors[] = 'Введите имя';
+    } else if (strlen($firstname) < 3 || strlen($firstname) > 17) {
+        $errors[] = 'Имя должно иметь не менее 3 букв и не более 17';
     } else if ($lastname == '') {
         $errors[] = 'Введите фамилию';
+    }else if (strlen($lastname) < 3 || strlen($lastname) > 17) {
+        $errors[] = 'Фамилия должна иметь не менее 3 букв и не более 17';
     } else if ($company == '') {
         $errors[] = 'Введите название фирмы';
     }
