@@ -12,7 +12,7 @@ $(document).ready(function () {
             }),
             success: function (data) {
                 if (data) {
-                    $('#error').html(data);
+                    $('.create_auto #error').html(data);
                 } else {
                     $(".create_auto").hide("slow");
                 }

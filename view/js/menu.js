@@ -32,7 +32,6 @@ $(document).ready(function () {
             alert('Заполните все обязательные поля.');
         }
     });
-
     //ФУНКЦИЯ ВЫВОДА ОКОН
     function animation_window(button, window, close) {
         $(button).click(function () {
@@ -42,7 +41,6 @@ $(document).ready(function () {
             $(window).hide("slow");
         });
     }
-
     //ОКНО РЕГИСТРАЦИИ
     animation_window('.registration p', '.register', '.register .closer');
     //ОКНО НАВИГАЦИИ
@@ -51,4 +49,6 @@ $(document).ready(function () {
     animation_window('.get_auto', '.create_auto', '.create_auto .closer');
     //ОКНО СОЗДАНИЯ ВОДИТЕЛЯ
     animation_window('.create_user', '.create_use', '.create_use .closer');
+    //СВЕЗЫВАЕМ 2 СЕЛЕКТА
+
 });

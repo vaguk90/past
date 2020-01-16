@@ -18,4 +18,6 @@ session_start();
     <script src="controller/autorization_controller.js"></script>
     <script src="controller/user_controller.js"></script>
     <script src="controller/create_auto_controller.js"></script>
+    <script src="controller/create_user_controller.js"></script>
+
 </head>
