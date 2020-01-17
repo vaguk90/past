@@ -49,6 +49,4 @@ $(document).ready(function () {
     animation_window('.get_auto', '.create_auto', '.create_auto .closer');
     //ОКНО СОЗДАНИЯ ВОДИТЕЛЯ
     animation_window('.create_user', '.create_use', '.create_use .closer');
-    //СВЕЗЫВАЕМ 2 СЕЛЕКТА
-
 });

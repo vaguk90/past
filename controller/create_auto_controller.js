@@ -19,4 +19,16 @@ $(document).ready(function () {
             }
         })
     });
+
+    //УДАЛЕНИЕ АВТОМОБИЛЯ
+    $('.auto_none').click(function () {
+        auto_delite = $('#i_auto').val();
+        $.ajax ({
+            url: 'model/create_autodb.php',
+            type: 'POST',
+            data: ({auto_delite: auto_delite})
+        });
+    });
+
+
 });

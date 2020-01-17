@@ -34,7 +34,6 @@ if (empty($login) || empty($pass)) {
             $errors[] = 'Не верно введен пороль';
         }
     }
-
 }
 if($errors) {
     $err = $errors[0];

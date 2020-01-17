@@ -1,4 +1,17 @@
 $(document).ready(function () {
+    //СВЕЗЫВАЕМ 2 СЕЛЕКТА
+    $('#i_auto').change(function () {
+        id = $('#i_auto').val();
+        $.ajax ({
+            url: 'model/create_userdb.php',
+            type: 'POST',
+            data: ({id_auto_change: id}),
+            success: function (e) {
+                $('#user_names').html(e);
+            }
+        });
+    });
+    //ДОБАВЛЕНИЕ ВОДИТЕЛЯ В ЭКИПАЖ
     $('#add_user').click(function (a) {
         a.preventDefault();
         id = $('#i_auto').val();
@@ -16,12 +29,23 @@ $(document).ready(function () {
             }),
             success: function (data) {
                 if (data) {
-                    $(' .create_use #error').html(data);
-
+                        $(' .create_use #error').html(data);
                 } else {
                     location.reload()
                 }
             }
         })
     });
+    //УДАЛЕНИЕ ВОДИТЕЛЯ ИЗ ЭКИПАЖА
+    $('.user_none').click(function () {
+        user_id = $('#user_names').val();
+        id = $('#i_auto').val();
+        $.ajax ({
+            url: 'model/create_userdb.php',
+            type: 'POST',
+            data: ({
+                id_auto: id,
+                user_id: user_id})
+    });
+});
 });

@@ -28,4 +28,16 @@ if (empty($errors)) {
     $err = $errors[0];
     print_r($err);
 }
+
+//УДАЛЕНИЕ АВТОМОБИЛЯ
+if($_POST['auto_delite'] ?? ''){
+    $id_autos = $_POST['auto_delite'];
+        $delete_user = $db->prepare("DELETE FROM `add_user_auto` WHERE id_auto = ? ");
+        $delete_user->execute(array($id_autos));
+        $delete_auto = $db->prepare("DELETE FROM `info_auto` WHERE id_auto = ? ");
+        $delete_auto->execute(array($id_autos));
+
+
+}
+
 ?>

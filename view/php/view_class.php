@@ -124,7 +124,7 @@ class General_stick
                  <p><select type = "text" id = "i_auto" name = "i_auto">
                  <option value = 0>Выберете автомобиль</option>';
 //ТУТ ВЫБОРКА СЕЛЕКТА
-                    $name = $db->prepare("SELECT * FROM `info_auto` WHERE id_auto = ?");
+                    $name = $db->prepare("SELECT * FROM `info_auto` WHERE id_user = ?");
                     $us_name = $_SESSION['id'];
                     $name->execute(array($us_name));
                     $name_auto = $name->fetchAll(PDO::FETCH_ASSOC);
