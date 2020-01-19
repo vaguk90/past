@@ -41,10 +41,10 @@ GUEST_NAV;
             </div>
 USER_NAV;
 
-            if (!empty($_POST['log_out'])) {
+            if ($_POST['log_out'] ?? '') {
                 session_unset();
                 session_destroy();
-                Header("Location: http://localhost/past/");
+                Header("Location: http://localhost/past/#");
             }
         }
     }
