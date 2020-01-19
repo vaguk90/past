@@ -14,7 +14,7 @@ $(document).ready(function () {
                 if (data) {
                     $('.create_auto #error').html(data);
                 } else {
-                    $(".create_auto").hide("slow");
+                    location.reload()
                 }
             }
         })
@@ -26,7 +26,10 @@ $(document).ready(function () {
         $.ajax ({
             url: 'model/create_autodb.php',
             type: 'POST',
-            data: ({auto_delite: auto_delite})
+            data: ({auto_delite: auto_delite}),
+            success: function () {
+                    location.reload()
+            }
         });
     });
 

@@ -45,7 +45,10 @@ $(document).ready(function () {
             type: 'POST',
             data: ({
                 id_auto: id,
-                user_id: user_id})
+                user_id: user_id}),
+            success: function () {
+                location.reload()
+            }
     });
 });
 });
