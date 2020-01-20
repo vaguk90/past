@@ -142,11 +142,18 @@ input[type = "submit"], input[type = "button"], .info span {
 .window input, .dann input{
     margin-top: 15px;
     font-size: 22px;
-    min-width: 300px;
-    max-width: 400px;
+    width: 90%;
+    max-width: 350px;
 }
+.dann ul {
+    width: 100%;
+}
+.window input {
+    max-width: 300px;
+}
+
 /*
-НВСТРОЙКА ОКОН
+НАСТРОЙКА ОКОН
  */
 .window, .guest_menu {
     padding: 20px;

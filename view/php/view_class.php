@@ -148,7 +148,7 @@ class General_stick
  </div>';
         }
         echo <<<DANN_
-  <div class="dann row justify-content-center">
+  <div class="dann row justify-content-center text-center">
        <ul>
             <li><input type="number" placeholder="Пробег утро" id="milage_day"></li>
             <li><input type="number" placeholder="Пробег вечер" id="milage_night"></li>     
