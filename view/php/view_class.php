@@ -3,14 +3,14 @@
 class Show_form
 {
     //ОКНО МЕНЮ
-    public function form_nav($data)
+    public function form_nav()
     {
         echo '<div class = "guest_menu  stick color_style">';
         $closes = new Commom;
         $closes->right_menu('close', 'Меню');
         echo '<div class="row mt- d-flex flex-column align-items-end row" >';
         //ЕСЛИ ПОЛЬЗОВАТЕЛЬ ГОСТЬ
-        if ($data === 'guest') {
+        if (empty($_SESSION['id']) && empty($_SESSION['email']) && empty($_SESSION['lastname'])) {
             echo <<<GUEST_NAV
 <form> 
                         <div class="login row d-flex flex-column">
@@ -27,7 +27,7 @@ class Show_form
             </div>
 GUEST_NAV;
             //ЕСЛИ ПОЛЬЗОВАТЕЛЬ АВТОРИЗОВАН
-        } else if ($data == 'user') {
+        } else {
             echo <<<USER_NAV
             <div class="row text-right">
       <div class="col">
@@ -44,7 +44,7 @@ USER_NAV;
             if ($_POST['log_out'] ?? '') {
                 session_unset();
                 session_destroy();
-                Header("Location: http://localhost/past/#");
+                Header( 'Location:'.$_SERVER['PHP_SELF'] );
             }
         }
     }
@@ -98,7 +98,7 @@ EXIT_;
         } else {
             echo <<<MENU_
 <div class="$class row color_style">
-    <p>....<br>....<br>....<br>....</p>
+    <p>....<br>....<br>....</p>
 </div>
 <h1 class = "text-center">$text</h1>
 MENU_;
@@ -118,10 +118,10 @@ class General_stick
         if ($data === 'guest') { //ЕСЛИ ПОЛЬЗОВАТЕЛЬ ГОСТЬ, ВЫВЕСТИ ИНФОРМАЦИОННОЕ ОКНО
             echo '<div class="row text-center stick mt-4">' . $info . '</div>';
         } else if ($data === 'user') { //ЕСЛИ ПОЛЬЗОВАТЕЛЬ АВТОРИЗОВАН ВЫВЕСТИ ОКНО ИНФОРМАЦИИ АВТОМОБИЛЯ
-            echo '<div class ="user_guest  d-flex justify-content-between mt-5">
+            echo '<div class ="user_ok  d-flex justify-content-between mt-5">
          <ul class = "p-0">
              <li>
-                 <p><select type = "text" id = "i_auto" name = "i_auto">
+                 <select type = "text" id = "i_auto" name = "i_auto">
                  <option value = 0>Выберете автомобиль</option>';
 //ТУТ ВЫБОРКА СЕЛЕКТА
                     $name = $db->prepare("SELECT * FROM `info_auto` WHERE id_user = ?");
@@ -131,16 +131,16 @@ class General_stick
                         foreach ($name_auto as $auto) {
                 echo "/n<option value = {$auto['id_auto']}>{$auto['name_auto']} {$auto['number']} </option>";
             }
-                   echo '</select></p>
+                   echo '</select>
              </li>
              <li><input type = "button" class = "get_auto" value = "Добавить автомобиль"></li>
              <li><input type = "submit" class = "auto_none" name =\'auto_none\' onclick="return confirm(\'Вы уверены что хотите удалить автомобиль? \')" value = "Удалить автомобиль"></li>
          </ul >
-         <ul class = "p-0 d-flex flex-column align-items-end">
+         <ul class = "user_add p-0 d-flex flex-column align-items-end">
              <li>
-                  <p><select type = "text" id = "user_names" name = "user_id">
+                  <select type = "text" id = "user_names" name = "user_id">
                   <option value ="0">Водители</option>
-                  </select></p>
+                  </select>
              </li>
              <li><input type = "button" class = "create_user" value = "Добавить водителя"></li>
              <li><input type = "submit" class = "user_none" name ="user_none" onclick="return confirm(\'Вы уверены что хотите удалить водителя?\')" value = "Удалить водителя"></li>
@@ -226,11 +226,11 @@ class Other_stick
     public function rezult()
     {
         echo '<div class="result stick color_style animated bounceOutUp">';
-
         $menu = new Commom;
-        $menu->right_menu('menu', 'Результат');
-        $navigation = new Show_form;
-        $navigation->form_nav('user');
+        $nav = new Show_form;
+        $nav->register();
+        $menu->right_menu('menu animated infinite delay-1s rubberBand', 'Результат');
+        $nav->form_nav();
         echo <<<REZULT_
        <div class="info d-flex flex-column align-items-start mt-4">
             <div class="probeg"></div>
@@ -239,6 +239,7 @@ class Other_stick
             <div class="ost_night"></div>
         </div>
     </div>
+    <script src="controller/autorization_controller.js"></script>
 REZULT_;
     }
 }
