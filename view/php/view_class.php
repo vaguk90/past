@@ -12,7 +12,7 @@ class Show_form
         //ЕСЛИ ПОЛЬЗОВАТЕЛЬ ГОСТЬ
         if (empty($_SESSION['id']) && empty($_SESSION['email']) && empty($_SESSION['lastname'])) {
             echo <<<GUEST_NAV
-<form> 
+<form method = "POST"> 
                         <div class="login row d-flex flex-column">
             <div id="new_user" class="mr-4"><p></p></div>
                 <input type="text" name ="login_entry" id = "login_entry" placeholder="Введите логин">
@@ -53,7 +53,7 @@ USER_NAV;
     public function register()
     {
         echo <<<REGISTRATION_head
-<div class = "register window stick color_style">
+<div class = "register  window stick color_style">
   <div class = "row">
   <div class = "col-12">
 REGISTRATION_head;
@@ -117,6 +117,15 @@ class General_stick
         $window -> create_use();
         if ($data === 'guest') { //ЕСЛИ ПОЛЬЗОВАТЕЛЬ ГОСТЬ, ВЫВЕСТИ ИНФОРМАЦИОННОЕ ОКНО
             echo '<div class="row text-center stick mt-4">' . $info . '</div>';
+
+
+
+
+            $window->create_dann('milage_day','milage_night','rashod_oil','day_oil','get_oil','btn_oil');
+
+
+
+
         } else if ($data === 'user') { //ЕСЛИ ПОЛЬЗОВАТЕЛЬ АВТОРИЗОВАН ВЫВЕСТИ ОКНО ИНФОРМАЦИИ АВТОМОБИЛЯ
             echo '<div class ="user_ok  d-flex justify-content-between mt-5">
          <ul class = "p-0">
@@ -124,11 +133,12 @@ class General_stick
                  <select type = "text" id = "i_auto" name = "i_auto">
                  <option value = 0>Выберете автомобиль</option>';
 //ТУТ ВЫБОРКА СЕЛЕКТА
-                    $name = $db->prepare("SELECT * FROM `info_auto` WHERE id_user = ?");
+
                     $us_name = $_SESSION['id'];
-                    $name->execute(array($us_name));
-                    $name_auto = $name->fetchAll(PDO::FETCH_ASSOC);
-                        foreach ($name_auto as $auto) {
+
+                   $ecip_name = $db -> prepare("SELECT * FROM `info_auto` WHERE id_auto IN (SELECT `id_auto` FROM `add_user_auto` WHERE id_user = ?)");
+                   $ecip_name -> execute(array($us_name,));
+            foreach ($ecip_name as $auto) {
                 echo "/n<option value = {$auto['id_auto']}>{$auto['name_auto']} {$auto['number']} </option>";
             }
                    echo '</select>
@@ -146,21 +156,30 @@ class General_stick
              <li><input type = "submit" class = "user_none" name ="user_none" onclick="return confirm(\'Вы уверены что хотите удалить водителя?\')" value = "Удалить водителя"></li>
          </ul>
  </div>';
+
+
+            $window->create_dann('user_milage_day','user_milage_night','user_rashod_oil','user_day_oil','user_get_oil','user_btn_oil');
         }
+    }
+//ФОРМА РАСЧЕТА БЕНЗИНА
+    public function create_dann($day = 'milage_day', $night = 'milage_night', $rashod = 'rashod_oil', $day_oil = 'day_oil', $get_oil = 'get_oil', $btn_oil = 'btn_oil')
+    {
         echo <<<DANN_
   <div class="dann row justify-content-center text-center">
        <ul>
-            <li><input type="number" placeholder="Пробег утро" id="milage_day"></li>
-            <li><input type="number" placeholder="Пробег вечер" id="milage_night"></li>     
-            <li><input type="number" placeholder="Расход топлива" id="rashod_oil"></li>
-            <li><input type="number" placeholder="Остаток при выезде" id="day_oil"></li>
-            <li><input type="number" placeholder="Заправил" id="get_oil"></li>
-            <li><input type="submit" value="Посчитать" id="btn_oil"></li>
+            <li><input type="number" placeholder="Пробег утро" class = "$day" id="milage_day"></li>
+            <li><input type="number" placeholder="Пробег вечер" class = "$night" id="milage_night"></li>     
+            <li><input type="number" placeholder="Расход топлива" class = "$rashod" id="rashod_oil"></li>
+            <li><input type="number" placeholder="Остаток при выезде" class = "$day_oil" id="day_oil"></li>
+            <li><input type="number" placeholder="Заправил" class = "$get_oil" id="get_oil"></li>
+            <li><input type="submit" value="Посчитать" class = "$btn_oil" id="btn_oil"></li>
        </ul>
+               <div id="error"></div>
   </div>
        
 DANN_;
     }
+
 //ОКНО СOЗДАНИЯ АВТОМОБИЛЯ
     public function create_auto()
     {
@@ -207,7 +226,7 @@ _HEADER_;
       <form method = "POST">
       <ul>
   <li><input type = "text" name = "add_firstname"  id = "add_firstname" placeholder = "Введите имя водителя" required></li>
-  <li><input type = "text" name = "add_lastname"  id = "add_lastname" placeholder = "Введите email водителя" required></li>
+  <li><input type = "text" name = "add_lastname"  id = "add_lastname" placeholder = "Введите фамилию водителя" required></li>
   <li><input type = "text" name = "user_company"  id = "user_company" placeholder = "Введите фирму водителя" required></li>
   <li><input type = "submit" name = "add_user" id = "add_user" value = "Сохранить"></li>
       </ul>
@@ -229,7 +248,7 @@ class Other_stick
         $menu = new Commom;
         $nav = new Show_form;
         $nav->register();
-        $menu->right_menu('menu animated infinite delay-1s rubberBand', 'Результат');
+        $menu->right_menu('close', 'Результат');
         $nav->form_nav();
         echo <<<REZULT_
        <div class="info d-flex flex-column align-items-start mt-4">
@@ -239,10 +258,22 @@ class Other_stick
             <div class="ost_night"></div>
         </div>
     </div>
-    <script src="controller/autorization_controller.js"></script>
 REZULT_;
     }
 }
+class istory {
+    public function istory_oil(){
+        echo '<h1 class="text-center">История</h1>
+                <ul class=" row justify-content-between">
+                    <li class="data_istory"><p>Дата</p></li>
+                    <li class="name_istory"><p>Водитель</p></li>
+                    <li class="night_probeg_istory"><p>Пробег вечер</p></li>
+                    <li class="probeg_istory"><p>Проехал за день</p></li>
+                    <li class="get_oil_istory"><p>Заправил</p></li>
+                    <li class="ostatock_oil_istory"><p>Остаток в баке</p></li>
+                </ul>';
 
+    }
+}
 
 ?>
