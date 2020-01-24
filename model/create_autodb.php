@@ -24,6 +24,20 @@ if (empty($errors)) {
     $save = $db->prepare("INSERT INTO `info_auto`(`name_auto`,`number`,`id_user`) VALUES(?,?,?)");
     $us_name = $_SESSION['id'];
     $save->execute(array($create_name_auto,$create_numer,$us_name));
+
+
+    $sel_id_auto = $db->prepare("SELECT `id_auto` FROM `info_auto` WHERE id_user = ? ORDER BY id_auto DESC LIMIT 1 ");
+    $sel_id_auto->execute(array($us_name));
+    $id_auto = $sel_id_auto->fetchAll(PDO::FETCH_ASSOC);
+    foreach ($id_auto as $items) {
+        $save_ecip = $db->prepare("INSERT INTO `add_user_auto` VALUES(?,?)");
+        $save_ecip->execute(array($items['id_auto'],$us_name));
+    }
+
+
+
+
+
 } else {
     $err = $errors[0];
     print_r($err);

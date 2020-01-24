@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1
--- Время создания: Янв 19 2020 г., 21:46
+-- Время создания: Янв 24 2020 г., 21:09
 -- Версия сервера: 10.4.10-MariaDB
 -- Версия PHP: 7.3.12
 
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- База данных: `auto_speed`
+-- База данных: `h145460_auto_speed`
 --
 
 -- --------------------------------------------------------
@@ -32,6 +32,26 @@ CREATE TABLE `add_user_auto` (
   `id_auto` int(11) NOT NULL,
   `id_user` int(11) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `auto_oil`
+--
+
+CREATE TABLE `auto_oil` (
+  `id_auto` int(11) NOT NULL,
+  `data` timestamp(6) NOT NULL DEFAULT current_timestamp(6) ON UPDATE current_timestamp(6),
+  `firstname` varchar(255) NOT NULL,
+  `lastname` varchar(255) NOT NULL,
+  `probeg_day` int(11) NOT NULL,
+  `probeg_night` int(11) NOT NULL,
+  `probeg` int(11) NOT NULL,
+  `get_oil` int(11) NOT NULL,
+  `ost_day_oil` int(11) NOT NULL,
+  `del_oil` int(11) NOT NULL,
+  `ost_oil` int(11) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
