@@ -117,18 +117,10 @@ class General_stick
         $window -> create_use();
         if ($data === 'guest') { //ЕСЛИ ПОЛЬЗОВАТЕЛЬ ГОСТЬ, ВЫВЕСТИ ИНФОРМАЦИОННОЕ ОКНО
             echo '<div class="row text-center stick mt-4">' . $info . '</div>';
-
-
-
-
             $window->create_dann('milage_day','milage_night','rashod_oil','day_oil','get_oil','btn_oil');
-
-
-
-
         } else if ($data === 'user') { //ЕСЛИ ПОЛЬЗОВАТЕЛЬ АВТОРИЗОВАН ВЫВЕСТИ ОКНО ИНФОРМАЦИИ АВТОМОБИЛЯ
             echo '<div class ="user_ok  d-flex justify-content-between mt-5">
-         <ul class = "p-0">
+         <ul class = "p-0 auto_add">
              <li>
                  <select type = "text" id = "i_auto" name = "i_auto">
                  <option value = 0>Выберете автомобиль</option>';
@@ -145,6 +137,7 @@ class General_stick
              </li>
              <li><input type = "button" class = "get_auto" value = "Добавить автомобиль"></li>
              <li><input type = "submit" class = "auto_none" name =\'auto_none\' onclick="return confirm(\'Вы уверены что хотите удалить автомобиль? \')" value = "Удалить автомобиль"></li>
+             <li><div id="error"></div></li>
          </ul >
          <ul class = "user_add p-0 d-flex flex-column align-items-end">
              <li>
@@ -154,6 +147,7 @@ class General_stick
              </li>
              <li><input type = "button" class = "create_user" value = "Добавить водителя"></li>
              <li><input type = "submit" class = "user_none" name ="user_none" onclick="return confirm(\'Вы уверены что хотите удалить водителя?\')" value = "Удалить водителя"></li>
+             <li><div id="error"></div></li>
          </ul>
  </div>';
 
