@@ -147,6 +147,7 @@ input[type = "submit"], input[type = "button"], .info span {
     max-width: 350px;
 }
 .dann ul {
+    margin-top: 65px;
     width: 100%;
 }
 .window input {
@@ -200,7 +201,9 @@ input::-webkit-inner-spin-button {
     margin: 0 auto;
 }
 
-
+h1 {
+    margin-bottom: 65px;
+}
 
 .login {
     margin-top: 50px;
@@ -259,5 +262,8 @@ ul {
     }
 input::placeholder{
 font-size: 15px;
+    }
+    .dann ul {
+        margin-top: 0px;
     }
 }

@@ -22,13 +22,20 @@ $(document).ready(function () {
 
     //УДАЛЕНИЕ АВТОМОБИЛЯ
     $('.auto_none').click(function () {
-        auto_delite = $('#i_auto').val();
+        auto_none = 'TRUE';
+        auto_id = $('#i_auto').val();
         $.ajax ({
             url: 'model/create_autodb.php',
             type: 'POST',
-            data: ({auto_delite: auto_delite}),
-            success: function () {
-                    location.reload()
+            data: ({auto_none: auto_none,
+                    auto_id: auto_id}),
+            success: function (data) {
+                if (data) {
+                    $('.auto_add #error').html(data);
+                } else {
+                    location.reload();
+                    alert(data);
+                }
             }
         });
     });

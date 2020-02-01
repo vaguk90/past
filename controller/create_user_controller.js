@@ -38,16 +38,22 @@ $(document).ready(function () {
     });
     //УДАЛЕНИЕ ВОДИТЕЛЯ ИЗ ЭКИПАЖА
     $('.user_none').click(function () {
+        user_none = 'TRUE';
         user_id = $('#user_names').val();
         id = $('#i_auto').val();
         $.ajax ({
             url: 'model/create_userdb.php',
             type: 'POST',
             data: ({
+                user_none: user_none,
                 id_auto: id,
-                user_id: user_id}),
-            success: function () {
-                location.reload()
+                users_id: user_id}),
+            success: function (data) {
+                if (data) {
+                    $(' .user_add #error').html(data);
+                } else {
+                    location.reload()
+                }
             }
     });
 });
