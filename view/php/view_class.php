@@ -257,17 +257,27 @@ REZULT_;
 }
 class istory {
     public function istory_oil(){
-        echo '<h1 class="text-center">История</h1>
-                <ul class=" row justify-content-between">
-                    <li class="data_istory"><p>Дата</p></li>
-                    <li class="name_istory"><p>Водитель</p></li>
-                    <li class="night_probeg_istory"><p>Пробег вечер</p></li>
-                    <li class="probeg_istory"><p>Проехал за день</p></li>
-                    <li class="get_oil_istory"><p>Заправил</p></li>
-                    <li class="ostatock_oil_istory"><p>Остаток в баке</p></li>
-                </ul>';
-
+        echo '<div class="istory stick color_style animated bounceOutUp">
+               <h1 class="text-center">История</h1>         
+<table class = "table table-striped  table-hover table-sm">
+    <thead class="sticky-thead">
+        <tr>
+            <th scope="col"><p>Дата</p></th>
+            <th scope="col"><p>Водитель</p></th>
+            <th scope="col"><p>Пробег вечер</p></th>
+            <th scope="col"><p>Проехал за день</p></th>
+            <th scope="col"><p>Заправил</p></th>
+            <th scope="col"><p>Остаток в баке</p></th>
+        </tr>
+    </thead>
+</table>
+<form>
+    <div class = "d-flex justify-content-between">
+        <input type="submit" class="past_date" value="Прошлый месяц">
+        <input type="submit" class="remove_date" value="Обратно">
+    </div>
+</form>
+</div> ';
     }
 }
-
 ?>

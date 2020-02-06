@@ -34,7 +34,6 @@ $(document).ready(function () {
                     $('.auto_add #error').html(data);
                 } else {
                     location.reload();
-                    alert(data);
                 }
             }
         });

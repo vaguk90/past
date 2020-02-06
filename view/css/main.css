@@ -1,5 +1,6 @@
 body {
     background: rgba(176, 175, 159, 0.1);
+
 }
 
 /*
@@ -11,10 +12,22 @@ body {
     padding: 20px 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     border-radius: 10px;
-    left: 0;
-    top: 15px;
-    right: 0;
     margin: 20px auto;
+}
+/*
+ОКНО РЕЗУЛЬТАТА
+ */
+.result {
+    display: none;
+    -animation-delay: 2s;
+    -webkit-animation-delay: .5s;
+    -moz-animation-delay: 2s;
+}
+/*
+OКНО ИСТОРИИ
+ */
+.istory {
+    display: none;
 }
 
 /*
@@ -125,11 +138,15 @@ input:focus:-ms-input-placeholder {
     text-indent: 500px;
     transition: text-indent 0.3s ease;
 }
+.table td {
+    text-align: center;
+    color: aqua;
+}
 
 /*
 аква цвет
  */
-input[type = "submit"], input[type = "button"], .info span {
+input[type = "submit"], input[type = "button"], .info span{
     color: aqua;
     margin-bottom: 10px;
 }
@@ -164,9 +181,6 @@ input[type = "submit"], input[type = "button"], .info span {
     z-index: 5;
     position: absolute;
 }
-
-
-
 
 
 
@@ -225,13 +239,6 @@ h1 {
     z-index: 6;
 }
 
-.result {
-    position: absolute;
-    display: none;
-    -animation-delay: 2s;
-    -webkit-animation-delay: .5s;
-    -moz-animation-delay: 2s;
-}
 
 ul {
     list-style: none;
