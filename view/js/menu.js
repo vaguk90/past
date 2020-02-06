@@ -1,4 +1,5 @@
 $(document).ready(function () {
+    /*
     //Повторение анимации
     $.fn.extend({
         animateCss: function (animationName) {
@@ -8,12 +9,11 @@ $(document).ready(function () {
             });
         }
     });
-
+*/
 
 
 //ОКНО РАСЧЕТ РЕЗУЛЬТАТА ГЛОБАЛЬНАЯ ФУНКЦИЯ
     $.oil_raschet = function(milage_day, milage_night, rashod_oil, day_oile, get_oile) {
-        $('.result').removeClass('fast');
         milage = milage_night - milage_day;
         del_night_oil = milage * rashod_oil / 100;
         night_oil = (day_oile - del_night_oil) + get_oile;
@@ -21,10 +21,45 @@ $(document).ready(function () {
         $('.minusoil').html("<p>Потратил бензина: <span>" + del_night_oil + "</span> л</p>");
         $('.rezult_get_oil').html("<p>Заправил: <span>" + get_oile + "</span> л</p>");
         $('.ost_night').html("<p>Остаток бензина вечером: <span>" + night_oil + "</span> л</p>");
-        $('.general').toggleClass('bounceInLeft bounceOutUp');
-        $('.result').toggleClass('bounceOutUp bounceInLeft');
-        $('.result').css({'display': 'block'});
-    }
+/*
+АНИМАЦИЯ ВЫВОДА РЕЗУЛЬТАТ РАСЧЕТА
+
+        $('.general').toggleClass('bounceInLeft bounceOutUp').delay(500).slideUp('slow', function(){
+            $('.result').toggleClass('bounceOutUp bounceInLeft').css({'display': 'block'});
+        });
+
+АНИМАЦИЯ ВОЗВРАЩЕНИЯ ОСНОВНОГО ОКНА
+
+$('.result .closer').click(function () {
+    $('.result').removeClass('bounceInLeft').addClass('bounceOutUp').delay(1500).slideUp('slow', function() {
+        $('.general').removeClass('bounceOutUp').addClass('bounceInLeft').css({'display': 'block'});
+        $('.milage_day, .user_milage_day').val('');
+        $('.milage_night, .user_milage_night').val('');
+        $('.rashod_oil, .user_rashod_oil').val('');
+        $('.day_oil, .user_day_oil').val('');
+        $('.get_oil, .user_get_oil').val('');
+        })
+    })
+         */
+
+
+        $('.general').toggleClass('bounceInLeft bounceOutUp').delay(500).slideUp('slow', function(){
+            $('.result').toggleClass('bounceOutUp bounceInLeft').slideDown('slow');
+        });
+
+        $('.result .closer').click(function () {
+            $('.result').removeClass('bounceInLeft').addClass('bounceOutUp').delay(1500).slideUp('slow', function() {
+                $('.general').slideDown(300).removeClass('bounceOutUp').addClass('bounceInLeft');
+
+                $('.milage_day, .user_milage_day').val('');
+                $('.milage_night, .user_milage_night').val('');
+                $('.rashod_oil, .user_rashod_oil').val('');
+                $('.day_oil, .user_day_oil').val('');
+                $('.get_oil, .user_get_oil').val('');
+            })
+        })
+};
+
 
 //расчет бензина и вывод результата
     $('.btn_oil').click(function () {
@@ -56,8 +91,5 @@ $(document).ready(function () {
     animation_window('.get_auto', '.create_auto', '.create_auto .closer');
     //ОКНО СОЗДАНИЯ ВОДИТЕЛЯ
     animation_window('.create_user', '.create_use', '.create_use .closer');
-    $('.result .closer').click(function () {
-        $('.general').toggleClass('bounceOutUp bounceInLeft delay-1s');
-        $('.result').toggleClass('bounceInLeft bounceOutUp');
-    });
+
 });

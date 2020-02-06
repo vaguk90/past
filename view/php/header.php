@@ -20,4 +20,5 @@ session_start();
     <script src="controller/create_auto_controller.js"></script>
     <script src="controller/create_user_controller.js"></script>
     <script src="controller/add_dann_oil_controller.js"></script>
+    <script src="controller/istory_controller.js"></script>
 </head>

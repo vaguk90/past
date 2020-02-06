@@ -50,6 +50,8 @@ if($_POST['auto_none'] ?? ''){
         $delete_user->execute(array($id_autos));
         $delete_auto = $db->prepare("DELETE FROM `info_auto` WHERE id_auto = ? ");
         $delete_auto->execute(array($id_autos));
+        $delete_dann = $db->prepare("DELETE FROM `auto_oil` WHERE id_auto = ? ");
+        $delete_dann->execute(array($id_autos));
     } else {
         $errors[] = 'Только хозяин может удалить автомобиль';
         $err = $errors[0];
