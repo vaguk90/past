@@ -143,6 +143,7 @@ input:focus:-ms-input-placeholder {
     color: aqua;
 }
 
+
 /*
 аква цвет
  */
@@ -229,7 +230,7 @@ h1 {
     margin-bottom: 15px;
 }
 
-.registration a {
+.registration a, .li_istory li {
     font-weight: bold;
     color: aqua;
     text-decoration: none;
@@ -258,7 +259,7 @@ ul {
     .user_add li{
         margin: 0 auto;
     }
-    select {
+    .user_ok select {
         width: 100%;
         margin-bottom: 10px;
         margin-top: 15px;

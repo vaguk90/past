@@ -258,7 +258,8 @@ REZULT_;
 class istory {
     public function istory_oil(){
         echo '<div class="istory stick color_style animated bounceOutUp">
-               <h1 class="text-center">История</h1>         
+               <h1 class="text-center">История</h1>        
+               <div class="table_istory">
 <table class = "table table-striped  table-hover table-sm">
     <thead class="sticky-thead">
         <tr>
@@ -271,12 +272,13 @@ class istory {
         </tr>
     </thead>
 </table>
-<form>
-    <div class = "d-flex justify-content-between">
-        <input type="submit" class="past_date" value="Прошлый месяц">
-        <input type="submit" class="remove_date" value="Обратно">
+</div> 
+<div class="li_istory">
+</div>
+    <div class = "d-flex justify-content-center">
+        <select id = "istory_select" name = "istory_select">
+        </select>
     </div>
-</form>
 </div> ';
     }
 }
