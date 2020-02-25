@@ -7,7 +7,11 @@ $(document).ready(function () {
             type: 'POST',
             data: ({id_auto_change: id}),
             success: function (e) {
-                $('#user_names').html(e);
+                if(e) {
+                    $('#user_names').html(e);
+                } else {
+                    $('#user_names').html('/n<option value = "0">Водители</option>');
+                }
             }
         });
     });

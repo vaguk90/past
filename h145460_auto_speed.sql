@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1
--- Время создания: Янв 24 2020 г., 21:09
+-- Время создания: Фев 18 2020 г., 23:35
 -- Версия сервера: 10.4.10-MariaDB
 -- Версия PHP: 7.3.12
 
@@ -47,6 +47,7 @@ CREATE TABLE `auto_oil` (
   `probeg_day` int(11) NOT NULL,
   `probeg_night` int(11) NOT NULL,
   `probeg` int(11) NOT NULL,
+  `rashod_oil` int(11) NOT NULL,
   `get_oil` int(11) NOT NULL,
   `ost_day_oil` int(11) NOT NULL,
   `del_oil` int(11) NOT NULL,

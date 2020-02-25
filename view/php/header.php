@@ -10,6 +10,9 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="view/css/animate.css" type="text/css"/>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <link rel="stylesheet" href="view/css/main.css" type="text/css"/>
     <script src="view/js/selected/jquery.chained.min.js"></script>
@@ -21,4 +24,11 @@ session_start();
     <script src="controller/create_user_controller.js"></script>
     <script src="controller/add_dann_oil_controller.js"></script>
     <script src="controller/istory_controller.js"></script>
+    <script src="controller/full_chat_controller.js"></script>
+
+
+
+
+    <link rel="stylesheet" href="view/js/scroll/jquery.mCustomScrollbar.css">
+    <script src="view/js/scroll/jquery.mCustomScrollbar.concat.min.js"></script>
 </head>

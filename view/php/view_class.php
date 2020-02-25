@@ -44,7 +44,7 @@ USER_NAV;
             if ($_POST['log_out'] ?? '') {
                 session_unset();
                 session_destroy();
-                Header( 'Location:'.$_SERVER['PHP_SELF'] );
+                Header('Location:' . $_SERVER['PHP_SELF']);
             }
         }
     }
@@ -113,11 +113,11 @@ class General_stick
     {
         global $db;
         $window = new General_stick;
-        $window -> create_auto();
-        $window -> create_use();
+        $window->create_auto();
+        $window->create_use();
         if ($data === 'guest') { //ЕСЛИ ПОЛЬЗОВАТЕЛЬ ГОСТЬ, ВЫВЕСТИ ИНФОРМАЦИОННОЕ ОКНО
             echo '<div class="row text-center stick mt-4">' . $info . '</div>';
-            $window->create_dann('milage_day','milage_night','rashod_oil','day_oil','get_oil','btn_oil');
+            $window->create_dann('milage_day', 'milage_night', 'rashod_oil', 'day_oil', 'get_oil', 'btn_oil');
         } else if ($data === 'user') { //ЕСЛИ ПОЛЬЗОВАТЕЛЬ АВТОРИЗОВАН ВЫВЕСТИ ОКНО ИНФОРМАЦИИ АВТОМОБИЛЯ
             echo '<div class ="user_ok  d-flex justify-content-between mt-5">
          <ul class = "p-0 auto_add">
@@ -126,14 +126,14 @@ class General_stick
                  <option value = 0>Выберете автомобиль</option>';
 //ТУТ ВЫБОРКА СЕЛЕКТА
 
-                    $us_name = $_SESSION['id'];
+            $us_name = $_SESSION['id'];
 
-                   $ecip_name = $db -> prepare("SELECT * FROM `info_auto` WHERE id_auto IN (SELECT `id_auto` FROM `add_user_auto` WHERE id_user = ?)");
-                   $ecip_name -> execute(array($us_name,));
+            $ecip_name = $db->prepare("SELECT * FROM `info_auto` WHERE id_auto IN (SELECT `id_auto` FROM `add_user_auto` WHERE id_user = ?)");
+            $ecip_name->execute(array($us_name,));
             foreach ($ecip_name as $auto) {
                 echo "/n<option value = {$auto['id_auto']}>{$auto['name_auto']} {$auto['number']} </option>";
             }
-                   echo '</select>
+            echo '</select>
              </li>
              <li><input type = "button" class = "get_auto" value = "Добавить автомобиль"></li>
              <li><input type = "submit" class = "auto_none" name =\'auto_none\' onclick="return confirm(\'Вы уверены что хотите удалить автомобиль? \')" value = "Удалить автомобиль"></li>
@@ -152,16 +152,17 @@ class General_stick
  </div>';
 
 
-            $window->create_dann('user_milage_day','user_milage_night','user_rashod_oil','user_day_oil','user_get_oil','user_btn_oil');
+            $window->create_dann('user_milage_day', 'user_milage_night', 'user_rashod_oil', 'user_day_oil', 'user_get_oil', 'user_btn_oil');
         }
     }
+
 //ФОРМА РАСЧЕТА БЕНЗИНА
     public function create_dann($day = 'milage_day', $night = 'milage_night', $rashod = 'rashod_oil', $day_oil = 'day_oil', $get_oil = 'get_oil', $btn_oil = 'btn_oil')
     {
         echo <<<DANN_
   <div class="dann row justify-content-center text-center">
        <ul>
-            <li><input type="number" placeholder="Пробег утро" class = "$day" id="milage_day"></li>
+            <li><input type="number"  placeholder="Пробег утро" class = "$day" id="milage_day"></li>
             <li><input type="number" placeholder="Пробег вечер" class = "$night" id="milage_night"></li>     
             <li><input type="number" placeholder="Расход топлива" class = "$rashod" id="rashod_oil"></li>
             <li><input type="number" placeholder="Остаток при выезде" class = "$day_oil" id="day_oil"></li>
@@ -202,6 +203,7 @@ _HEADER_;
   </div>
 CREATE_AUTO;
     }
+
     //ОКНО ДОБАВЛЕНИЯ ВОДИТЕЛЯ
     public function create_use()
     {
@@ -255,10 +257,14 @@ class Other_stick
 REZULT_;
     }
 }
-class istory {
-    public function istory_oil(){
+
+class istory
+{
+    public function istory_oil()
+    {
         echo '<div class="istory stick color_style animated bounceOutUp">
-               <h1 class="text-center">История</h1>         
+               <h1 class="text-center">История</h1>        
+               <div class="table_istory">
 <table class = "table table-striped  table-hover table-sm">
     <thead class="sticky-thead">
         <tr>
@@ -271,13 +277,42 @@ class istory {
         </tr>
     </thead>
 </table>
-<form>
-    <div class = "d-flex justify-content-between">
-        <input type="submit" class="past_date" value="Прошлый месяц">
-        <input type="submit" class="remove_date" value="Обратно">
-    </div>
-</form>
-</div> ';
+</div> 
+
+<div class="li_istory">
+</div>
+<div class="button_istory text-center mt-3">
+<input type = "button" class="carousel-arrow-up" value = "Развернуть">
+<input type = "button" class="carousel-arrow-down" value = "Свернуть">
+</div>
+    <div class = "d-flex justify-content-center">
+        <select id = "istory_select" name = "istory_select">
+        </select>
+    </div> 
+    </div>';
     }
 }
+
+class full_chat
+{
+    public function full_chats()
+    {
+        echo '
+        <div class = "full_chats stick color_style animated bounceInLeft">
+         <h1 class="text-center">Общий чат</h1>        
+            <div class="chat_box">
+            <form>
+                <div class="chat_window color_style p-2  ">
+                </div>
+                <div class = "chat_input text-center">
+                <input type="text" placeholder = "Введите текст" class = "chat_text">
+                 <input type="submit" placeholder = "Отправить" class = "chat_enter ">
+</div>
+</form>
+            </div>
+        </div>
+        ';
+    }
+}
+
 ?>
