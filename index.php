@@ -8,6 +8,7 @@
     $istory = new istory;
     $rezult = new Other_stick;
     $full_chat = new full_chat;
+    $privateChat = new PrivateChats();
     if (empty($_SESSION['id']) && empty($_SESSION['email']) && empty($_SESSION['lastname'])) {
         $buttons->right_menu('menu animated infinite delay-1s rubberBand', 'Расход топлива');
         $navigation->form_nav();
@@ -24,6 +25,7 @@
         echo '</div>';
         $rezult->rezult();
         $istory->istory_oil();
+        $privateChat->privateChat();
         $full_chat->full_chats();
     }
     ?>

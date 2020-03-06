@@ -17,6 +17,7 @@ body {
     border-radius: 10px;
     margin: 20px auto;
 }
+
 /*
 ОКНО РЕЗУЛЬТАТА
  */
@@ -26,12 +27,14 @@ body {
     -webkit-animation-delay: .5s;
     -moz-animation-delay: 2s;
 }
+
 /*
 НАСТРОЙКА ГЛАВНОГО СТИКА
 */
 .general {
     margin-bottom: 20px;
 }
+
 /*
 OКНО ИСТОРИИ
  */
@@ -79,7 +82,7 @@ input, select {
 select {
     min-width: 200px;
     text-align-last: center;
-    margin-bottom: 10px ;
+    margin-bottom: 10px;
 }
 
 option {
@@ -142,25 +145,45 @@ input:focus:-ms-input-placeholder {
     transition: text-indent 0.3s ease;
 }
 
-.chat_window {
-    height: 80vh;
+.commonWindowChat, .privateWindowChat {
     border-radius: 10px;
-    box-shadow:
-            inset 0 0 100px hsla(0,0%,0%,.2),
-            inset 0px 1px 5px #999,
-            inset 0px 2px 0px #888,
-            inset 0px 3px 0px #777,
-            inset 0px 4px 0px #666,
-            inset 0px 5px 0px #555,
-            inset 0px 6px 0px #444,
-            inset 0px 7px 0px #333,
-            inset 0px 8px 7px #001135;
+    font-weight: bold;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    word-wrap: break-word;
 
 }
-.chat_input {
-    margin-top: 20px;
+.windowChat {
+    padding: 5px;
+    padding-top: 10px;
+    padding-bottom: 0px;
+    height: 80vh;
+    border-radius: 10px;
+    box-shadow: inset 0 0 100px hsla(0, 0%, 0%, .2),
+    inset 0px 1px 5px #999,
+    inset 0px 2px 0px #888,
+    inset 0px 3px 0px #777,
+    inset 0px 4px 0px #666,
+    inset 0px 5px 0px #555,
+    inset 0px 6px 0px #444,
+    inset 0px 7px 0px #333,
+    inset 0px 8px 7px #001135;
 }
-.chat_text  {
+.privateChat {
+    display: none;
+}
+::-webkit-scrollbar {
+    width: 0px; /* remove scrollbar space */
+    background: transparent; /* optional: just make scrollbar invisible */
+}
+
+
+.chat_input input {
+    margin-top: 10px;
+}
+
+.chat_input input[type = 'text']{
     width: 80%;
 }
 
@@ -173,10 +196,11 @@ input:focus:-ms-input-placeholder {
 /*
 аква цвет
  */
-input[type = "submit"], input[type = "button"], .info span{
+input[type = "submit"], input[type = "button"], .info span {
     color: aqua;
     margin-bottom: 10px;
 }
+
 .registration input {
     margin-right: 20px;
 }
@@ -184,16 +208,18 @@ input[type = "submit"], input[type = "button"], .info span{
 /*
 размер полей ввода, а так же отступы
  */
-.window input, .dann input{
+.window input, .dann input {
     margin-top: 15px;
     font-size: 22px;
     width: 90%;
     max-width: 350px;
 }
+
 .dann ul {
     margin-top: 65px;
     width: 100%;
 }
+
 .window input {
     max-width: 300px;
 }
@@ -208,7 +234,6 @@ input[type = "submit"], input[type = "button"], .info span{
     z-index: 5;
     position: absolute;
 }
-
 
 
 /*
@@ -233,6 +258,7 @@ input::-webkit-inner-spin-button {
     font-size: 27px;
     font-weight: bold;
 }
+
 .menu {
     top: -10px;
 }
@@ -273,40 +299,49 @@ ul {
     padding: 0;
 }
 
-@media screen and (max-width: 555px){
+/*media content*/
+@media screen and (max-width: 555px) {
     .stick {
         width: 95%;
     }
+
     .user_ok {
         flex-direction: column;
         text-align: center;
     }
 
-    .user_add li{
+    .user_add li {
         margin: 0 auto;
     }
+
     .user_ok select {
         width: 100%;
         margin-bottom: 10px;
         margin-top: 15px;
         font-size: 20px;
     }
+
     h1 {
         font-size: 25px;
     }
-input::placeholder{
-font-size: 15px;
+
+    input::placeholder {
+        font-size: 15px;
     }
+
     .dann ul {
         margin-top: 0px;
     }
-.li_istory {
-    max-height: 100vh;
-    overflow: hidden;
-    border-bottom: ridge silver 2px;
 
-}
-.li_istory ul {
-    box-shadow: 0 3px 3px #575555 inset;
-}
+    .li_istory {
+        max-height: 100vh;
+        overflow: hidden;
+        border-bottom: ridge silver 2px;
+
+    }
+
+    .li_istory ul {
+        box-shadow: 0 3px 3px #575555 inset;
+    }
+
 }

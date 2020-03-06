@@ -5,7 +5,8 @@ session_start();
 ?>
 <!DOCTYPE html>
 <head>
-    <title>Заправка</title>
+    <title>Расчет расхода топлива</title>
+    <meta name="description" content="Пользователи получают возможность вести журнал расхода топлива автомобиля, добавлять к автомобилю экипаж, общаться во внутреннем чате, форуме и многое другое!" />
     <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="view/css/animate.css" type="text/css"/>
@@ -15,20 +16,18 @@ session_start();
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <link rel="stylesheet" href="view/css/main.css" type="text/css"/>
-    <script src="view/js/selected/jquery.chained.min.js"></script>
+
     <script src="view/js/menu.js"></script>
     <script src="controller/registration_controller.js"></script>
     <script src="controller/autorization_controller.js"></script>
-    <script src="controller/user_controller.js"></script>
     <script src="controller/create_auto_controller.js"></script>
     <script src="controller/create_user_controller.js"></script>
     <script src="controller/add_dann_oil_controller.js"></script>
     <script src="controller/istory_controller.js"></script>
     <script src="controller/full_chat_controller.js"></script>
+    <script src="controller/privateChatController.js"></script>
 
 
 
 
-    <link rel="stylesheet" href="view/js/scroll/jquery.mCustomScrollbar.css">
-    <script src="view/js/scroll/jquery.mCustomScrollbar.concat.min.js"></script>
 </head>

@@ -302,11 +302,34 @@ class full_chat
          <h1 class="text-center">Общий чат</h1>        
             <div class="chat_box">
             <form>
-                <div class="chat_window color_style p-2  ">
+            <div class = "windowChat">
+                <div class="commonWindowChat color_style pl-2  ">
+                </div>
                 </div>
                 <div class = "chat_input text-center">
-                <input type="text" placeholder = "Введите текст" class = "chat_text">
-                 <input type="submit" placeholder = "Отправить" class = "chat_enter ">
+                <input type="text" placeholder = "Введите текст" class = "enterTextInCommenChat">
+                 <input type="submit" placeholder = "Отправить" class = "commonChatButton">
+</div>
+</form>
+            </div>
+        </div>
+        ';
+    }
+}
+class PrivateChats {
+    public function privateChat() {
+        echo '
+        <div class = "privateChat stick color_style animated bounceInLeft">
+         <h1 class="text-center">Чат экипажа</h1>        
+            <div class="chat_box">
+            <form>
+            <div class = "windowChat">
+                <div class="privateWindowChat color_style pl-2  ">
+                </div>
+                </div>
+                <div class = "chat_input text-center">
+                <input type="text" placeholder = "Введите текст" class = "enterTextInPrivateChat">
+                 <input type="submit" placeholder = "Отправить" class = "PrivateChatButton">
 </div>
 </form>
             </div>
